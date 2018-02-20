@@ -1,0 +1,36 @@
+{
+  "name": "js-test-gen",
+  "version": "1.0.0",
+  "description": "Generating js test templates with a little help from babel",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-test-gen/js-test-gen.git"
+  },
+  "author": "grady-lad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js-test-gen/js-test-gen/issues"
+  },
+  "homepage": "https://github.com/js-test-gen/js-test-gen#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "prettier": "^1.10.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.12.1",
+    "rollup": "^0.56.2",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-json": "^2.3.0"
+  }
+}
