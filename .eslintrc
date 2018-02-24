@@ -2,7 +2,8 @@
 {
     "env": {
       "node": true,
-      "browser": true
+      "browser": true,
+      "jest": true
     },
     "extends": "eslint:recommended",
     "parser": "babel-eslint",
@@ -11,4 +12,3 @@
       "no-console": 1
     }
   }
-  

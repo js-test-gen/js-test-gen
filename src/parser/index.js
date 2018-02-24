@@ -1,17 +1,5 @@
 import { transform } from "babel-core";
 
-/**
- Purpose of this function is to use babel
- to parse the file and get all the export and default exports of a file.
-
- We should have a target object of what we want to work with
- Something like
- exportedFuncs = {
-  defaultExport: {}, // here add info about a function which has a default export.
-  namedExport: [], // array of named exports which contain info about the named exports
-}
-**/
-
 const getDefaultName = (node = {}, defaultName = "defaultMod") => {
   if (node.declaration) {
     if (node.declaration.id) {
@@ -24,7 +12,11 @@ const getDefaultName = (node = {}, defaultName = "defaultMod") => {
 
 const parser = (contents = "", srcFileName) => {
   const namedMods = [];
-  let defaultMod;
+  let defaultMod = {
+    type: "",
+    declarationType: "",
+    name: ""
+  };
   const getNodes = () => {
     return {
       visitor: {
