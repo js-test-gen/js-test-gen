@@ -8,7 +8,8 @@
   "scripts": {
     "build": "BABEL_ENV=build rollup -c",
     "start": "rollup -c -w",
-    "test": " BABEL_ENV=test jest"
+    "test": " BABEL_ENV=test jest",
+    "test:watch": "BABEL_ENV=test jest --watch"
   },
   "repository": {
     "type": "git",
