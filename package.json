@@ -6,9 +6,9 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "BABEL_ENV=build rollup -c",
     "start": "rollup -c -w",
-    "test": "jest"
+    "test": " BABEL_ENV=test jest"
   },
   "repository": {
     "type": "git",
