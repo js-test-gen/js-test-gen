@@ -62,8 +62,12 @@ const parser = (contents = "", srcFileName) => {
   };
 
   //Transform nodes via babel
-  transform(contents, { plugins: [getNodes] });
-  return { namedMods, defaultMod };
+  try {
+    transform(contents, { plugins: [getNodes] });
+    return { namedMods, defaultMod };
+  } catch (err) {
+    console.error("Trouble parsing contents via babel");
+  }
 };
 
 export default parser;
