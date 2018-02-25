@@ -12,14 +12,10 @@ const noNameDefault = `export default function() {
 }`;
 
 describe("parser", () => {
-  it("should return an empty default obj and empty array when no params passed", () => {
+  it("should return an undefind and empty array when no params passed", () => {
     expect(parser()).toEqual({
       namedMods: [],
-      defaultMod: {
-        type: "",
-        declarationType: "",
-        name: ""
-      }
+      defaultMod: undefined
     });
   });
   it("should populate namedMods array with named exports info & defaultMod with default mod info when found", () => {
@@ -43,14 +39,10 @@ describe("parser", () => {
       ]
     });
   });
-  it("should return an empty default obj and empty array when no exports found", () => {
+  it("should return undefined and empty array when no exports found", () => {
     expect(parser(" const add1 = (x) => x + 1")).toEqual({
       namedMods: [],
-      defaultMod: {
-        type: "",
-        declarationType: "",
-        name: ""
-      }
+      defaultMod: undefined
     });
   });
   it("should name default module without a name to 'defaultMod' when no name declared", () => {

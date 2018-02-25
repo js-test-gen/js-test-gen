@@ -12,11 +12,7 @@ const getDefaultName = (node = {}, defaultName = "defaultMod") => {
 
 const parser = (contents = "", srcFileName) => {
   const namedMods = [];
-  let defaultMod = {
-    type: "",
-    declarationType: "",
-    name: ""
-  };
+  let defaultMod;
   const getNodes = () => {
     return {
       visitor: {
