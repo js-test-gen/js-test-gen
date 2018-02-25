@@ -1,4 +1,5 @@
 import { transform } from "babel-core";
+import reactPreset from "babel-preset-react";
 
 const getDefaultName = (node = {}, defaultName = "defaultMod") => {
   if (node.declaration) {
@@ -63,7 +64,10 @@ const parser = (contents = "", srcFileName) => {
 
   //Transform nodes via babel
   try {
-    transform(contents, { plugins: [getNodes] });
+    transform(contents, {
+      presets: [reactPreset],
+      plugins: [getNodes]
+    });
     return { namedMods, defaultMod };
   } catch (err) {
     console.error("Trouble parsing contents via babel");
