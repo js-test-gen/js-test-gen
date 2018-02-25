@@ -6,17 +6,18 @@ import {
   defaultTemplate
 } from "./templates";
 
-export const generateTest = (contents = "") => {
-  const mods = parser(contents);
+export const generateTest = (contents = "", typePreset) => {
+  const mods = parser({ contents, srcFileName: undefined, typePreset });
   return mods ? testTemplate(mods) : "";
 };
 
 export const generateTestTemplate = ({
   contents = "",
   srcFileName = "",
-  importFromPath
+  importFromPath,
+  typePreset
 } = {}) => {
-  const mods = parser(contents, srcFileName);
+  const mods = parser({ contents, srcFileName, typePreset });
   if (mods) {
     const { namedMods, defaultMod } = mods;
     const areNameMods = (mods = []) => mods.length > 0;

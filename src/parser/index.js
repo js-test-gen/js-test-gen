@@ -1,5 +1,17 @@
-import { transform } from "babel-core";
-import reactPreset from "babel-preset-react";
+import { transform } from "@babel/core";
+import reactPreset from "@babel/preset-react";
+import typescriptPreset from "@babel/preset-typescript";
+import flowPreset from "@babel/preset-flow";
+
+const getTypePreset = typePreset => {
+  if (typePreset === "FLOW") {
+    return flowPreset;
+  }
+  if (typePreset === "TYPESCRIPT") {
+    return typescriptPreset;
+  }
+  return {};
+};
 
 const getDefaultName = (node = {}, defaultName = "defaultMod") => {
   if (node.declaration) {
@@ -11,7 +23,7 @@ const getDefaultName = (node = {}, defaultName = "defaultMod") => {
   return defaultName;
 };
 
-const parser = (contents = "", srcFileName) => {
+const parser = ({ contents = "", srcFileName, typePreset } = {}) => {
   const namedMods = [];
   let defaultMod;
   const getNodes = () => {
@@ -65,7 +77,7 @@ const parser = (contents = "", srcFileName) => {
   //Transform nodes via babel
   try {
     transform(contents, {
-      presets: [reactPreset],
+      presets: [getTypePreset(typePreset), reactPreset],
       plugins: [getNodes]
     });
     return { namedMods, defaultMod };

@@ -19,7 +19,7 @@ describe("parser", () => {
     });
   });
   it("should populate namedMods array with named exports info & defaultMod with default mod info when found", () => {
-    expect(parser(testFile)).toEqual({
+    expect(parser({ contents: testFile })).toEqual({
       defaultMod: {
         declarationType: "Identifier",
         name: "someModule",
@@ -40,12 +40,14 @@ describe("parser", () => {
     });
   });
   it("should return undefined and empty array when no exports found", () => {
-    expect(parser(" const add1 = (x) => x + 1")).toEqual({
+    expect(parser({ contents: " const add1 = (x) => x + 1" })).toEqual({
       namedMods: [],
       defaultMod: undefined
     });
   });
   it("should name default module without a name to 'defaultMod' when no name declared", () => {
-    expect(parser(noNameDefault).defaultMod.name).toBe("defaultMod");
+    expect(parser({ contents: noNameDefault }).defaultMod.name).toBe(
+      "defaultMod"
+    );
   });
 });

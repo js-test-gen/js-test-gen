@@ -17,7 +17,13 @@ export default {
       format: "es"
     }
   ],
-  external: ["prettier", "babel-core", "babel-preset-react"],
+  external: [
+    "prettier",
+    "@babel/core",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@babel/preset-flow"
+  ],
   plugins: [
     json(),
     resolve(),

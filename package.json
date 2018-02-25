@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/js-test-gen/js-test-gen#readme",
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-flow": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/preset-typescript": "^7.0.0-beta.40",
     "prettier": "^1.10.2"
   },
   "devDependencies": {
