@@ -24,17 +24,7 @@ describe("generateTestCases", () => {
   it("should generate a test case per module", () => {
     expect(
       prettier.format(generateTestCases([{ name: "mod1" }, { name: "mod2" }]))
-    ).toBe(
-      prettier.format(`describe("mod1", () => {
-      it("should fail auto generated test", () => {
-          expect(mod1()).toBe(false);
-      });
-    }); describe("mod2", () => {
-      it("should fail auto generated test", () => {
-          expect(mod2()).toBe(false);
-      });
-    });`)
-    );
+    ).toMatchSnapshot();
   });
 });
 describe("generateNamedImports", () => {

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateTest should return an empty string if passed no js contents  1`] = `
+"describe(\\"add1\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(add1()).toBe(false);
+  });
+});
+"
+`;
+
+exports[`generateTestTemplate should return a default mod template if template contains no named mods 1`] = `
+"import obj from \\"..\\";
+describe(\\"obj\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(obj()).toBe(false);
+  });
+});
+"
+`;
+
+exports[`generateTestTemplate should return a named mod template if template contains no default mod 1`] = `
+"import { add1 } from \\"..\\";
+describe(\\"add1\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(add1()).toBe(false);
+  });
+});
+"
+`;
+
+exports[`generateTestTemplate should return a test file template if js contents contains default & named mods 1`] = `
+"import obj, { add1 } from \\"..\\";
+describe(\\"obj\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(obj()).toBe(false);
+  });
+});
+describe(\\"add1\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(add1()).toBe(false);
+  });
+});
+"
+`;

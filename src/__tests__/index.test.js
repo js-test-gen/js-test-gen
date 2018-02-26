@@ -1,11 +1,4 @@
-import prettier from "prettier";
 import { generateTest, generateTestTemplate } from "../index";
-import {
-  generateTestCases,
-  testFileTemplate,
-  namedModTemplate,
-  defaultTemplate
-} from "../templates";
 
 const fileDetails = {
   srcFileName: "index",
@@ -27,8 +20,7 @@ describe("generateTest", () => {
     expect(generateTest("Invalid js contents")).toBe("");
   });
   it("should return an empty string if passed no js contents ", () => {
-    const result = prettier.format(generateTestCases([{ name: "add1" }]));
-    expect(generateTest(namedSnippet)).toBe(result);
+    expect(generateTest(namedSnippet)).toMatchSnapshot();
   });
 });
 describe("generateTestTemplate", () => {
@@ -44,12 +36,7 @@ describe("generateTestTemplate", () => {
         contents: testFileSnippet,
         ...fileDetails
       })
-    ).toBe(
-      testFileTemplate(
-        { defaultMod: { name: "obj" }, namedMods: [{ name: "add1" }] },
-        fileDetails
-      )
-    );
+    ).toMatchSnapshot();
   });
   it("should return a named mod template if template contains no default mod", () => {
     expect(
@@ -57,7 +44,7 @@ describe("generateTestTemplate", () => {
         contents: namedSnippet,
         ...fileDetails
       })
-    ).toBe(namedModTemplate([{ name: "add1" }], fileDetails));
+    ).toMatchSnapshot();
   });
   it("should return a default mod template if template contains no named mods", () => {
     expect(
@@ -65,6 +52,6 @@ describe("generateTestTemplate", () => {
         contents: defaultSnippet,
         ...fileDetails
       })
-    ).toBe(defaultTemplate({ name: "obj" }, fileDetails));
+    ).toMatchSnapshot();
   });
 });
