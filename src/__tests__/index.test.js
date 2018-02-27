@@ -1,4 +1,5 @@
 import { generateTest, generateTestTemplate } from "../index";
+import reactTemplate from "./testTemplates/reactTemplate";
 
 const fileDetails = {
   srcFileName: "index",
@@ -52,6 +53,11 @@ describe("generateTestTemplate", () => {
         contents: defaultSnippet,
         ...fileDetails
       })
+    ).toMatchSnapshot();
+  });
+  it("should be able to generate a testTemplate for react code", () => {
+    expect(
+      generateTestTemplate({ contents: reactTemplate, ...fileDetails })
     ).toMatchSnapshot();
   });
 });
