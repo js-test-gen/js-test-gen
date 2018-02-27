@@ -9,7 +9,12 @@
     "build": "BABEL_ENV=build rollup -c",
     "start": "rollup -c -w",
     "test": " BABEL_ENV=test jest",
-    "test:watch": "BABEL_ENV=test jest --watch"
+    "test:watch": "BABEL_ENV=test jest --watch",
+    "precommit": "lint-staged",
+    "prepush": "npm run test"
+  },
+  "lint-staged": {
+    "*.js": ["eslint", "prettier-eslint --write", "git add"]
   },
   "repository": {
     "type": "git",
@@ -35,7 +40,10 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.12.1",
+    "husky": "^0.14.3",
     "jest": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "prettier-eslint": "^8.8.1",
     "rollup": "^0.56.2",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.3.0",
