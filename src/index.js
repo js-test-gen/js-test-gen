@@ -6,8 +6,8 @@ import {
   defaultTemplate
 } from "./templates";
 
-export const generateTest = (contents = "", typePreset) => {
-  const mods = parser({ contents, srcFileName: undefined, typePreset });
+export const generateTest = (contents = "", typeSystem) => {
+  const mods = parser({ contents, srcFileName: undefined, typeSystem });
   return mods ? testTemplate(mods) : "";
 };
 
