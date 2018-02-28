@@ -2,11 +2,12 @@ import { generateTest, generateTestTemplate } from "../index";
 import {
   namedSnippet,
   defaultSnippet,
-  testFileSnippet
-} from "./testSnippets/jsSnippets";
-
-import reactSnippet from "./testSnippets/reactSnippets";
-import flowSnippet from "./testSnippets/flowSnippets";
+  testFileSnippet,
+  reactSnippet,
+  flowSnippet,
+  typeScriptSnippet
+} from "./testSnippets";
+import { FLOW, TYPESCRIPT } from "../constants/index";
 
 const fileDetails = {
   srcFileName: "index",
@@ -60,12 +61,21 @@ describe("generateTestTemplate", () => {
       generateTestTemplate({ contents: reactSnippet, ...fileDetails })
     ).toMatchSnapshot();
   });
-  it("should be able to generate a testTemplate for code contain flow", () => {
+  it("should be able to generate a testTemplate for code containing flow types", () => {
     expect(
       generateTestTemplate({
         contents: flowSnippet,
         ...fileDetails,
-        typePreset: "FLOW"
+        typePreset: FLOW
+      })
+    ).toMatchSnapshot();
+  });
+  it("should be able to generate a testTemplate for code containing typescript types", () => {
+    expect(
+      generateTestTemplate({
+        contents: typeScriptSnippet,
+        ...fileDetails,
+        typePreset: TYPESCRIPT
       })
     ).toMatchSnapshot();
   });

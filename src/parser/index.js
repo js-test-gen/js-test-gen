@@ -3,11 +3,13 @@ import reactPreset from "@babel/preset-react";
 import typescriptPreset from "@babel/preset-typescript";
 import flowPreset from "@babel/preset-flow";
 
+import { FLOW, TYPESCRIPT } from "../constants";
+
 const getTypePreset = typePreset => {
-  if (typePreset === "FLOW") {
+  if (typePreset === FLOW) {
     return flowPreset;
   }
-  if (typePreset === "TYPESCRIPT") {
+  if (typePreset === TYPESCRIPT) {
     return typescriptPreset;
   }
   return {};

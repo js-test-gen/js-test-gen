@@ -1,5 +1,12 @@
 import parser from "../index";
 
+import {
+  reactSnippet,
+  flowSnippet,
+  typeScriptSnippet
+} from "../../__tests__/testSnippets";
+import { FLOW, TYPESCRIPT } from "../../constants";
+
 const testFile = `
   export const someFunc = (x = 0) => x +1;
   const otherFunc = () => { console.log('some');}
@@ -49,5 +56,54 @@ describe("parser", () => {
     expect(parser({ contents: noNameDefault }).defaultMod.name).toBe(
       "defaultMod"
     );
+  });
+  it("Should be able to parse react code", () => {
+    expect(
+      parser({
+        contents: reactSnippet,
+        srcFileName: undefined
+      })
+    ).toEqual({
+      defaultMod: {
+        declarationType: "Identifier",
+        name: "RandomComponent",
+        type: "ExportDefaultDeclaration"
+      },
+      namedMods: []
+    });
+  });
+  it("Should be able to parse flow code if flow type system is specified", () => {
+    expect(
+      parser({
+        contents: flowSnippet,
+        srcFileName: undefined,
+        typePreset: FLOW
+      })
+    ).toEqual({
+      defaultMod: {
+        declarationType: "Identifier",
+        name: "addOne",
+        type: "ExportDefaultDeclaration"
+      },
+      namedMods: []
+    });
+  });
+  it("Should be able to parse typescript code if typescript type system is specified", () => {
+    expect(
+      parser({
+        contents: typeScriptSnippet,
+        srcFileName: undefined,
+        typePreset: TYPESCRIPT
+      })
+    ).toEqual({
+      defaultMod: undefined,
+      namedMods: [
+        {
+          declarationType: "Identifier",
+          name: "greeter",
+          type: "ExportNamedDeclaration"
+        }
+      ]
+    });
   });
 });
