@@ -1,17 +1,17 @@
 import { generateTest, generateTestTemplate } from "../index";
-import reactTemplate from "./testTemplates/reactTemplate";
+import {
+  namedSnippet,
+  defaultSnippet,
+  testFileSnippet
+} from "./testSnippets/jsSnippets";
+
+import reactSnippet from "./testSnippets/reactSnippets";
+import flowSnippet from "./testSnippets/flowSnippets";
 
 const fileDetails = {
   srcFileName: "index",
   importFromPath: ".."
 };
-const namedSnippet = "export const add1 = (x) => x + 1";
-const defaultSnippet = `
-const obj = {};
-export default obj`;
-const testFileSnippet = `
-${namedSnippet} 
-${defaultSnippet}`;
 
 describe("generateTest", () => {
   it("should return an empty string if no params passed", () => {
@@ -57,7 +57,16 @@ describe("generateTestTemplate", () => {
   });
   it("should be able to generate a testTemplate for react code", () => {
     expect(
-      generateTestTemplate({ contents: reactTemplate, ...fileDetails })
+      generateTestTemplate({ contents: reactSnippet, ...fileDetails })
+    ).toMatchSnapshot();
+  });
+  it("should be able to generate a testTemplate for code contain flow", () => {
+    expect(
+      generateTestTemplate({
+        contents: flowSnippet,
+        ...fileDetails,
+        typePreset: "FLOW"
+      })
     ).toMatchSnapshot();
   });
 });

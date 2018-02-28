@@ -9,6 +9,16 @@ exports[`generateTest should return an empty string if passed no js contents  1`
 "
 `;
 
+exports[`generateTestTemplate should be able to generate a testTemplate for code contain flow 1`] = `
+"import addOne from \\"..\\";
+describe(\\"addOne\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(addOne()).toBe(false);
+  });
+});
+"
+`;
+
 exports[`generateTestTemplate should be able to generate a testTemplate for react code 1`] = `
 "import RandomComponent from \\"..\\";
 describe(\\"RandomComponent\\", () => {
