@@ -6,7 +6,7 @@ import {
   reactSnippet,
   flowSnippet,
   typeScriptSnippet
-} from "./testSnippets";
+} from "../testSnippets";
 import { FLOW, TYPESCRIPT } from "../constants/index";
 
 const fileDetails = {

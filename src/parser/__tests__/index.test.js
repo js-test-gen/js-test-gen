@@ -4,7 +4,7 @@ import {
   reactSnippet,
   flowSnippet,
   typeScriptSnippet
-} from "../../__tests__/testSnippets";
+} from "../../testSnippets";
 import { FLOW, TYPESCRIPT } from "../../constants";
 
 const testFile = `
