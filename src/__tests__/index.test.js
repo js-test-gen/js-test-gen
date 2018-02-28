@@ -4,8 +4,11 @@ import {
   defaultSnippet,
   testFileSnippet,
   reactSnippet,
+  reactFunc,
   flowSnippet,
-  typeScriptSnippet
+  flowFunc,
+  typeScriptSnippet,
+  typeScriptFunc
 } from "../testSnippets";
 import { FLOW, TYPESCRIPT } from "../constants/index";
 
@@ -21,8 +24,17 @@ describe("generateTest", () => {
   it("should return an empty string if passed no js contents", () => {
     expect(generateTest("Invalid js contents")).toBe("");
   });
-  it("should return an empty string if passed no js contents ", () => {
+  it("should generateTest for js contents passed ", () => {
     expect(generateTest(namedSnippet)).toMatchSnapshot();
+  });
+  it("should generateTest test for flow contents passed ", () => {
+    expect(generateTest(flowFunc, FLOW)).toMatchSnapshot();
+  });
+  it("should generateTest for test for react contents passed ", () => {
+    expect(generateTest(reactFunc)).toMatchSnapshot();
+  });
+  it("should generateTest for typescript contents passed ", () => {
+    expect(generateTest(typeScriptFunc, TYPESCRIPT)).toMatchSnapshot();
   });
 });
 describe("generateTestTemplate", () => {

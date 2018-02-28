@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateTest should return an empty string if passed no js contents  1`] = `
+exports[`generateTest should generateTest for js contents passed  1`] = `
 "describe(\\"add1\\", () => {
   it(\\"should fail auto generated test\\", () => {
     expect(add1()).toBe(false);
@@ -8,6 +8,19 @@ exports[`generateTest should return an empty string if passed no js contents  1`
 });
 "
 `;
+
+exports[`generateTest should generateTest for test for react contents passed  1`] = `""`;
+
+exports[`generateTest should generateTest for typescript contents passed  1`] = `
+"describe(\\"greeter\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(greeter()).toBe(false);
+  });
+});
+"
+`;
+
+exports[`generateTest should generateTest test for flow contents passed  1`] = `""`;
 
 exports[`generateTestTemplate should be able to generate a testTemplate for code containing flow types 1`] = `
 "import addOne from \\"..\\";

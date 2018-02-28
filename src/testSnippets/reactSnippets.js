@@ -1,5 +1,4 @@
-const reactTemplate = `import React from 'react';
-
+export const reactFunc = `
 const RandomComponent = props => (
   <div>
     <div>
@@ -8,6 +7,9 @@ const RandomComponent = props => (
     </div>
   </div>
 );
+`;
 
+const reactTemplate = `import React from 'react';
+${reactFunc}
 export default RandomComponent;`;
 export default reactTemplate;

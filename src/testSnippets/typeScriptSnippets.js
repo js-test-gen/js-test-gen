@@ -1,11 +1,13 @@
+export const typeScriptFunc = `export function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}`;
+
 const typeScriptSnippet = `
 interface Person {
     firstName: string;
     lastName: string;
 }
-
-export function greeter(person: Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
+${typeScriptFunc}
 `;
+
 export default typeScriptSnippet;

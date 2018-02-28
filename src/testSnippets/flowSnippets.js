@@ -1,9 +1,9 @@
+export const flowFunc = `export const addOne = (x: Number) Number => x + 2 `;
+
 const flowCode = `
 //@flow
 
-const addOne = (x: int): int => {
-    return x +1
-};
+${flowCode}
 
 export default addOne;
 `;
