@@ -66,7 +66,7 @@ describe("generateTestTemplate", () => {
       generateTestTemplate({
         contents: flowSnippet,
         ...fileDetails,
-        typePreset: FLOW
+        typeSystem: FLOW
       })
     ).toMatchSnapshot();
   });
@@ -75,7 +75,7 @@ describe("generateTestTemplate", () => {
       generateTestTemplate({
         contents: typeScriptSnippet,
         ...fileDetails,
-        typePreset: TYPESCRIPT
+        typeSystem: TYPESCRIPT
       })
     ).toMatchSnapshot();
   });

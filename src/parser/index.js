@@ -25,7 +25,7 @@ const getDefaultName = (node = {}, defaultName = "defaultMod") => {
   return defaultName;
 };
 
-const parser = ({ contents = "", srcFileName, typePreset } = {}) => {
+const parser = ({ contents = "", srcFileName, typeSystem } = {}) => {
   const namedMods = [];
   let defaultMod;
   const getNodes = () => {
@@ -79,7 +79,7 @@ const parser = ({ contents = "", srcFileName, typePreset } = {}) => {
   //Transform nodes via babel
   try {
     transform(contents, {
-      presets: [getTypePreset(typePreset), reactPreset],
+      presets: [getTypePreset(typeSystem), reactPreset],
       plugins: [getNodes]
     });
     return { namedMods, defaultMod };

@@ -77,7 +77,7 @@ describe("parser", () => {
       parser({
         contents: flowSnippet,
         srcFileName: undefined,
-        typePreset: FLOW
+        typeSystem: FLOW
       })
     ).toEqual({
       defaultMod: {
@@ -93,7 +93,7 @@ describe("parser", () => {
       parser({
         contents: typeScriptSnippet,
         srcFileName: undefined,
-        typePreset: TYPESCRIPT
+        typeSystem: TYPESCRIPT
       })
     ).toEqual({
       defaultMod: undefined,

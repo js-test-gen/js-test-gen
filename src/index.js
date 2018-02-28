@@ -15,9 +15,9 @@ export const generateTestTemplate = ({
   contents = "",
   srcFileName = "",
   importFromPath,
-  typePreset
+  typeSystem
 } = {}) => {
-  const mods = parser({ contents, srcFileName, typePreset });
+  const mods = parser({ contents, srcFileName, typeSystem });
   if (mods) {
     const { namedMods, defaultMod } = mods;
     const areNameMods = (mods = []) => mods.length > 0;
