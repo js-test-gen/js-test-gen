@@ -4,12 +4,14 @@ export const spreadMods = (namedMods = [], defMod) => {
   return defMod ? [defMod, ...namedMods] : namedMods;
 };
 
+const cleanName = (str = "") => str.replace(new RegExp("-", "g"), "");
+
 export const generateTestCases = (mods = []) => {
   const initialTemplate = "";
   return mods.reduce(
     (template, mod) => `${template} describe("${mod.name}", () => {
       it("should fail auto generated test", () => {
-          expect(${mod.name}()).toBe(false);
+          expect(${cleanName(mod.name)}()).toBe(false);
       });
     });`,
     initialTemplate
@@ -27,7 +29,8 @@ export const generateNamedImports = (funcList = []) => {
   return namedImports.length > 1 ? `${removeLastComma(namedImports)} }` : "";
 };
 
-export const generateDefaultImport = (defaultImport = "") => defaultImport;
+export const generateDefaultImport = (defaultImport = "") =>
+  cleanName(defaultImport);
 
 export const generateFromStatement = (fileName = "", fromPath) => {
   const location = fromPath || `./${fileName}`;

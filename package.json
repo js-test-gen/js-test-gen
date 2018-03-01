@@ -27,7 +27,11 @@
     "testRegex": "__tests__/.*\\.test\\.js$"
   },
   "lint-staged": {
-    "*.js": ["eslint", "prettier-eslint --write", "git add"]
+    "*.js": [
+      "eslint",
+      "prettier-eslint --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.40",

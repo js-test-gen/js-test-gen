@@ -13,3 +13,17 @@ describe(\\"mod2\\", () => {
 });
 "
 `;
+
+exports[`generateTestCases should generate test cases when module contains '-' 1`] = `
+"describe(\\"mod1\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(mod1()).toBe(false);
+  });
+});
+describe(\\"mod-two\\", () => {
+  it(\\"should fail auto generated test\\", () => {
+    expect(modtwo()).toBe(false);
+  });
+});
+"
+`;

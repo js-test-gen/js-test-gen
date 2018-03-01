@@ -26,6 +26,13 @@ describe("generateTestCases", () => {
       prettier.format(generateTestCases([{ name: "mod1" }, { name: "mod2" }]))
     ).toMatchSnapshot();
   });
+  it("should generate test cases when module contains '-'", () => {
+    expect(
+      prettier.format(
+        generateTestCases([{ name: "mod1" }, { name: "mod-two" }])
+      )
+    ).toMatchSnapshot();
+  });
 });
 describe("generateNamedImports", () => {
   it("should return empty string if 'funcList' param is not defined", () => {
@@ -50,6 +57,9 @@ describe("generateDefaultImport", () => {
   });
   it("should return the param passed", () => {
     expect(generateDefaultImport("someVal")).toBe("someVal");
+  });
+  it("should be able to handle translate " - " to epmty spaces", () => {
+    expect(generateDefaultImport("some-val")).toBe("someval");
   });
 });
 describe("generateFromStatement", () => {
