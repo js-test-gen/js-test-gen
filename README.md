@@ -47,18 +47,18 @@ describe("someModule2", () => {
 
 `generateTestTemplate` is used to generate a complete js unit test template.
 
-| property         | type                | description                                                                                     |
-| ---------------- | ------------------- | ----------------------------------------------------------------------------------------------- |
-| `contents`       | `string`            | The JS contents to generate a test from.                                                        |
-| `srcFileName`    | `string`            | The name of the JS module the test is being created for.                                        |
-| `importFromPath` | `string`            | The path of where the module is located in relation to the generated test file E.G `.` or `../` |
-| `typeSystem`     | `FLOW | TYPESCRIPT` | If the js module is using a type system this needs to be specified.                             |
+| property         | type                 | description                                                                                     |
+| ---------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| `contents`       | `string`             | The JS contents to generate a test from.                                                        |
+| `srcFileName`    | `string`             | The name of the JS module the test is being created for.                                        |
+| `importFromPath` | `string`             | The path of where the module is located in relation to the generated test file E.G `.` or `../` |
+| `typeSystem`     | `FLOW or TYPESCRIPT` | If the js module is using a type system this needs to be specified.                             |
 
 ### `generateTest(contents, typeSystem)`
 
 `generateTest` is used to generate test cases from given js contents.
 
-| arguments    | type                | description                                                           |
-| ------------ | ------------------- | --------------------------------------------------------------------- |
-| `contents`   | `string`            | The JS contents to generate a test from.                              |
-| `typeSystem` | `FLOW | TYPESCRIPT` | If the js contents is using a type system this needs to be specified. |
+| arguments    | type                 | description                                                           |
+| ------------ | -------------------- | --------------------------------------------------------------------- |
+| `contents`   | `string`             | The JS contents to generate a test from.                              |
+| `typeSystem` | `FLOW or TYPESCRIPT` | If the js contents is using a type system this needs to be specified. |
