@@ -1,4 +1,4 @@
-# [![js-test-gen](media/atom-gen-tests.png)](https://js-test-gen.github.io)
+# [![js-test-gen](media/jsTestGen.png)](https://js-test-gen.github.io)
 
 js-test-gen is an opinionated unit test template generator using babel and prettier.
 
