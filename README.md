@@ -60,3 +60,29 @@ describe("someModule2", () => {
 | ------------ | -------------------- | --------------------------------------------------------------------- |
 | `contents`   | `string`             | The JS contents to generate a test from.                              |
 | `typeSystem` | `FLOW or TYPESCRIPT` | If the js contents is using a type system this needs to be specified. |
+
+## Usage
+
+```javascript
+import { generateTestTemplate } from "js-test-gen";
+
+const contentToParse = `export const addOne = (x) => x +1`;
+
+const testTemplate = generateTestTemplate({
+  contents: contentsToParse, // contents of the mod
+  srcFileName: "addOne", // the name of the mod we want to test
+  importFromPath: ".." // where the test should import the mod from
+});
+```
+
+### result
+
+```javascript
+import { addOne } from "../addOne";
+
+describe("addOne", () => {
+  it("should fail auto generated test", () => {
+    expect(addOne()).toBe(false);
+  });
+});
+```
