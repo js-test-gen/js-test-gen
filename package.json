@@ -1,6 +1,6 @@
 {
   "name": "js-test-gen",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generating js test templates with a little help from babel",
   "repository": {
     "type": "git",
