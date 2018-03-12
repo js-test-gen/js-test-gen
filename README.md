@@ -4,6 +4,8 @@ js-test-gen is an opinionated unit test template generator using babel and prett
 
 It uses babel to identify what modules are being exported. It then generates a test template and formats the template using prettier.
 
+[![CircleCI](https://circleci.com/gh/js-test-gen/js-test-gen.svg?style=svg)](https://circleci.com/gh/js-test-gen/js-test-gen)
+
 ## Installation
 
 `npm install js-tes-gen`
