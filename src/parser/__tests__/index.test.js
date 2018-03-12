@@ -18,6 +18,11 @@ const noNameDefault = `export default function() {
   return "";
 }`;
 
+const moduleExports = `
+const addone = (x) => x +1;
+module.exports = addOne;
+`;
+
 describe("parser", () => {
   it("should return an undefind and empty array when no params passed", () => {
     expect(parser()).toEqual({
@@ -105,5 +110,19 @@ describe("parser", () => {
         }
       ]
     });
+  });
+  it("should add to 'module.exports' to defaultMod", () => {
+    expect(parser({ contents: moduleExports, srcFileName: "addOne" })).toEqual({
+      namedMods: [],
+      defaultMod: {
+        declarationType: "ModuleExports",
+        name: "addOne",
+        type: "MemberExpression"
+      }
+    });
+  });
+  it("should add default name to 'module.exports' if no default name found", () => {
+    const res = parser({ contents: moduleExports });
+    expect(res.defaultMod.name).toEqual("exportedModule");
   });
 });

@@ -62,13 +62,24 @@ const parser = ({ contents = "", srcFileName, typeSystem } = {}) => {
           }
         },
         ExportDefaultDeclaration(path) {
-          /**TODO: Investigate Identifer type**/
           if (path.node) {
             const { node } = path;
             defaultMod = {
               type: node.type,
               declarationType: node.declaration.type,
               name: getDefaultName(node, srcFileName)
+            };
+          }
+        },
+        MemberExpression(path) {
+          if (
+            path.get("object").isIdentifier({ name: "module" }) &&
+            path.get("property").isIdentifier({ name: "exports" })
+          ) {
+            defaultMod = {
+              type: "MemberExpression",
+              declarationType: "ModuleExports",
+              name: srcFileName || "exportedModule"
             };
           }
         }
